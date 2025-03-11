@@ -3,12 +3,18 @@ const fs = require('fs');
 const path = require('path');
 const filePath = path.join(__dirname, '../data/vehicles.json');
 
-const vehicleModel = {
-    getVehicleById: (id) =>{
-        const infoData = fs.readFileSync(filePath, 'utf8');
-        const vehicles = JSON.parse(infoData)
-        return vehicles.find(v => v.id === id || null)
+const readVehicleModel = {
+    //funcion que lee archivo JSON, y lo devuelve en buffer. Con el metodo parse lo convertimos de buffer a obj javascript
+    getVehicleById: () => {
+        const data = fs.readFileSync(filePath);
+        return JSON.parse(data)
+    },
+
+    //escribe los nuevos datos en el json
+    writeVehicle : (vehicle) => {
+        fs.writeFileSync(filePath, JSON.stringify(vehicle, null, 2))
     }
 }
 
-module.exports = vehicleModel
+
+module.exports = readVehicleModel

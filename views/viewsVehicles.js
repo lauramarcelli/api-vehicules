@@ -1,18 +1,10 @@
-//modulo que tiene la logica para formatear la respuesta que se le enviara au usuario
 
-const viewVehicle = {
-    formatResponse: (vehicle) =>{
-        if(!vehicle){
-            return JSON.stringify({
-                status: "error",
-                message: "Vehiculo no encontrado"
-            })
-        }
-        return JSON.stringify({
-            status: "success",
-            data: vehicle
-        })
+const displayResponse = {
+  //metodo para formatear respuesta
+    formatResponse: (data) => {
+        return JSON.stringify(data, null, 2)
     }
 }
 
-module.exports = viewVehicle
+
+module.exports = displayResponse
