@@ -10,13 +10,15 @@ const rl =readline.createInterface({
 const client = net.createConnection({port: 8080}, () => {
     console.log('Conectado al servidor');
 
-    rl.question('Ingrese un comando (Por ej: OBTENER DATOS o AGREGAR DATOS {"marca": "nissan", "modelo": "sentra", "año":2022}): ', (command) => {client.write(command)});
+    rl.question('Ingrese un comando (Por ej: OBTENER DATOS o AGREGAR DATOS {"marca": "nissan", "modelo": "sentra", "año":2022}): ', (command) => {client.write(command)
+    });
 });
 
 //evento data
 
 client.on('data', (data) => {
-    console.log('Respuesta del servidor:  ', data.toString());
+    console.log('Respuesta del servidor:');
+    console.log(data.toString());
     rl.close();
     client.end()
 })

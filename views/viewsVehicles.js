@@ -1,5 +1,5 @@
 
-const displayResponse = {
+const viewsVehicles = {
   //metodo para formatear respuesta
     formatResponse: (data) => {
         return JSON.stringify(data, null, 2)
@@ -7,4 +7,4 @@ const displayResponse = {
 }
 
 
-module.exports = displayResponse
+module.exports = viewsVehicles
